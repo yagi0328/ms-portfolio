@@ -90,33 +90,59 @@ const Header: FC = () => {
         <div className={styles.header_content}>
           <ul className={styles.header_grovalNavi}>
             <li>
-              <Link href="/">
+              <Link
+                href="/"
+                onClick={() => {
+                  naviAreaRef.current?.classList.remove(styles.active);
+                }}
+              >
                 <span className={styles.icon}></span>
                 <p className={styles.text}>HOME</p>
               </Link>
             </li>
             <li>
-              <Link href="/about">
+              <Link
+                href="/about"
+                onClick={() => {
+                  naviAreaRef.current?.classList.remove(styles.active);
+                }}
+              >
                 <span className={styles.icon}></span>
                 <p className={styles.text}>ABOUT</p>
               </Link>
             </li>
             <li>
-              <Link href="/works">
+              <Link
+                href="/works"
+                onClick={() => {
+                  naviAreaRef.current?.classList.remove(styles.active);
+                }}
+              >
                 <span className={styles.icon}></span>
                 <p className={styles.text}>WORKS</p>
               </Link>
             </li>
             <li>
-              <Link href="/contact">
+              <Link
+                href="/contact"
+                onClick={() => {
+                  naviAreaRef.current?.classList.remove(styles.active);
+                }}
+              >
                 <span className={styles.icon}></span>
                 <p className={styles.text}>CONTACT</p>
               </Link>
             </li>
           </ul>
-          <a className={styles.logo} href="">
+          <Link
+            className={styles.logo}
+            href="/"
+            onClick={() => {
+              naviAreaRef.current?.classList.remove(styles.active);
+            }}
+          >
             <Image src="/top/logo.svg" width={176} height={33} alt="PORTFOLIO mayu sugita" />
-          </a>
+          </Link>
         </div>
       </div>
     </header>
