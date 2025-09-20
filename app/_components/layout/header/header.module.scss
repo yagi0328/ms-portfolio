@@ -1,0 +1,221 @@
+.header {
+  //ヘッダーのCSS
+  //PC・SPの切り替え、HBメニュー
+  :global(.sp) {
+    display: none;
+  }
+
+  :global(.navi_area) {
+    display: none;
+  }
+
+  @include mq("tb") {
+    :global(.pc) {
+      display: none !important;
+    }
+
+    :global(.sp) {
+      display: block !important;
+    }
+
+    :global(.navi_area) {
+      display: block;
+    }
+  }
+
+  @keyframes rotateRight {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  &_wrap {
+    z-index: 10;
+    width: 100%;
+    background: rgba(234, 234, 234, 0.5); // opacity: 0.5;
+    backdrop-filter: blur(5px);
+    position: fixed;
+    padding-top: 20px;
+    padding-bottom: 17px;
+    top: 0;
+    transform: translateY(-100%);
+
+    &_content {
+      width: min(94%, 1802px);
+      margin-inline: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &_grovalNavi {
+    font-family: var(--f-primary-en);
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.2rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+
+    li:nth-of-type(1),
+    li:nth-of-type(3) {
+      span {
+        background: url(../../../../public/top/s-flower1.svg) no-repeat center/cover;
+        display: inline-block;
+        width: 26px;
+        height: 24px;
+      }
+    }
+    li:nth-of-type(2),
+    li:nth-of-type(4) {
+      span {
+        background: url(../../../../public/top/s-flower2.svg) no-repeat center/cover;
+        display: inline-block;
+        width: 26px;
+        height: 22px;
+      }
+    }
+    //メニュー間の間隔調整
+    li:nth-of-type(1) {
+      margin-right: 12px;
+    }
+    li:nth-of-type(2) {
+      margin-right: 3.5px;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .icon {
+        transition: transform 0.4s ease;
+      }
+
+      .text {
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          background-color: var(--c-black);
+          left: 0;
+          bottom: -5px;
+          transform: scaleX(0);
+          transform-origin: right top;
+          transition: transform 0.3s ease;
+        }
+      }
+
+      &:hover {
+        .text::after {
+          transform-origin: left top;
+          transform: scaleX(1);
+        }
+        .icon {
+          animation: rotateRight 5s linear infinite;
+        }
+      }
+    }
+  }
+}
+
+@include mq(tb) {
+  .header {
+    position: relative;
+    .pc {
+      display: none !important;
+    }
+
+    .navi_btn {
+      position: fixed;
+      top: 0;
+      right: 0;
+      background: rgba(234, 234, 234, 1);
+      padding: 10px;
+      border-radius: 0 0 0 10px;
+      z-index: 98;
+      cursor: pointer;
+    }
+
+    .navi_area {
+      width: 100%;
+      height: 100svh;
+      background: rgba(234, 234, 234, 1);
+      z-index: 99;
+      position: fixed;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transform: translate(100%, 0);
+      transition: transform 0.8s ease, opacity 0.8s ease;
+
+      &.active {
+        transform: translate(0, 0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .header_content {
+        width: max(40%, 146px);
+        margin-inline: auto;
+        margin-top: 23vh;
+
+        .header_grovalNavi {
+          display: grid;
+          grid-template-rows: repeat(4, 1fr);
+          justify-content: center;
+          font-size: 16px;
+          font-weight: 400;
+        }
+
+        .logo {
+          display: block;
+          margin-top: 28vh;
+          text-align: center;
+
+          img {
+            display: inline-block;
+          }
+        }
+      }
+
+      .navi_close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 32px;
+        height: 32px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 101;
+      }
+
+      .navi_close span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--c-black);
+        border-radius: 2px;
+        transform-origin: center;
+      }
+
+      .navi_close span:first-child {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      .navi_close span:last-child {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+  }
+}

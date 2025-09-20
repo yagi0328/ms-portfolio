@@ -1,0 +1,40 @@
+.btn_more {
+  a {
+    display: block;
+    padding: 16px 26px 18px 40px;
+    width: 218px;
+    border: 1px solid var(--c-black);
+    border-radius: 40px;
+    color: var(--c-black);
+    font-family: var(--f-primary-en);
+    font-weight: 500;
+    position: relative;
+    transition: color 0.4s ease, background-color 0.4s ease;
+
+    &::after {
+      content: "";
+      width: 25px;
+      aspect-ratio: 1 / 1;
+      display: block;
+      mask: url(../../../../public/top/top-btn-arrow-orange.svg);
+      mask-repeat: no-repeat;
+      mask-size: cover;
+      position: absolute;
+      right: 28px;
+      top: 52%;
+      transform: translateY(-50%);
+      background-color: var(--c-black);
+      transition: background-color 0.4s ease, transform 0.4s ease;
+    }
+
+    @include hover {
+      background-color: var(--c-black) !important;
+      color: #fff;
+
+      &::after {
+        background-color: #fff;
+        transform: translate(12%, -62%);
+      }
+    }
+  }
+}

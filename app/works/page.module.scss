@@ -1,0 +1,14 @@
+.works_wrap {
+  position: relative;
+  padding-bottom: clampVw(180, 322, 322, 1440);
+  background: var(--c-background2);
+  border-radius: clampVw(80, 178, 178, 1440) clampVw(80, 178, 178, 1440) 0 0;
+  margin-top: 127px;
+  padding-top: clampVw(104, 144, 144, 1440);
+
+  @include mq(tb) {
+    border-radius: 80px 80px 0px 0px;
+    margin-top: 77px;
+    padding-bottom: 150px;
+  }
+}

@@ -1,0 +1,51 @@
+//CONTACTのCSS
+.contact {
+  position: relative;
+  z-index: 5;
+
+  &[data-class="about"] {
+    padding-top: 0;
+  }
+
+  &_btn {
+    padding: clampVw(36, 84, 84, 1920) clampVw(45, 188, 188, 1920);
+    width: min(88%, 1400px);
+    background-color: var(--c-black);
+    border-radius: 35px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: background-color 0.4s ease;
+
+    &:hover {
+      background-color: var(--c-background1);
+
+      &::after {
+        transform: scale(1.7);
+      }
+    }
+
+    p {
+      font-family: var(--f-primary-en);
+      color: #fff;
+      font-weight: 300;
+      font-size: clampVw(28, 48, 48, 1250);
+      letter-spacing: 0.7rem;
+      min-width: 0; //折り返し可能に
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: clampVw(10, 16, 16, 1250);
+      height: clampVw(10, 16, 16, 1250);
+      background-color: #fff;
+      border-radius: 50%;
+      transition: transform 0.4s ease;
+      position: absolute;
+      top: 50%;
+      right: clampVw(45, 188, 188, 1920);
+      transform: translateY(-50%);
+    }
+  }
+}

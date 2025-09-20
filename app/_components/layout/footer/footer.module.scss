@@ -1,0 +1,127 @@
+//フッターのCSS
+.footer {
+  position: relative;
+  z-index: 4;
+  padding-top: 35vh;
+  padding-bottom: 5px;
+  background-color: var(--c-base);
+
+  &_content {
+    width: min(88%, 1400px);
+    margin-inline: auto;
+    padding-bottom: 15vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--f-primary-en);
+
+    .btn_pageTop {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      img {
+        width: 32px;
+      }
+      p {
+        position: relative;
+        margin-top: 17px;
+        font-size: clampVw(13, 16, 16, 1440);
+        &::after {
+          content: "";
+          position: absolute;
+          display: block;
+          width: 100%;
+          height: 1px;
+          background-color: var(--c-black);
+          left: 0;
+          bottom: -5px;
+          transform: scale(0, 1);
+          transform-origin: right top;
+          transition: transform 0.3s;
+        }
+      }
+      &:hover {
+        p {
+          &::after {
+            transform-origin: left top;
+            transform: scale(1, 1);
+          }
+        }
+      }
+    }
+
+    &_item {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      p {
+        font-size: clampVw(20, 32, 32, 1440);
+      }
+    }
+  }
+  small {
+    font-family: var(--f-sub-en);
+    display: block;
+    text-align: center;
+  }
+}
+
+@include mq(tb) {
+  .footer {
+    padding-top: 174px;
+
+    &_content {
+      padding-bottom: 35px;
+      display: flex;
+      flex-direction: column-reverse;
+
+      .btn_pageTop {
+        margin-top: 103px;
+        img {
+          width: 32px;
+        }
+        p {
+          position: relative;
+          margin-top: 17px;
+          &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: var(--c-black);
+            left: 0;
+            bottom: -5px;
+            transform: scale(0, 1);
+            transform-origin: right top;
+            transition: transform 0.3s;
+          }
+        }
+        &:hover {
+          p {
+            &::after {
+              transform-origin: left top;
+              transform: scale(1, 1);
+            }
+          }
+        }
+      }
+
+      &_item {
+        display: block;
+        width: 100%;
+        p {
+          text-align: center;
+        }
+        img {
+          margin-inline: auto;
+        }
+      }
+    }
+    small {
+      font-family: var(--f-sub-en);
+      display: block;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,128 @@
+.contact {
+  //---------------
+  //全体
+  //---------------
+  .content_wrap {
+    width: min(88%, 1400px);
+    margin-inline: auto;
+    margin-top: 180px;
+  }
+
+  //---------------
+  //MV
+  //---------------
+  .mv {
+    &_content {
+      width: min(88%, 1400px);
+      margin-inline: auto;
+      margin-top: 150px;
+
+      h1 {
+        font-family: var(--f-primary-en);
+        font-size: clampVw(30, 48, 48, 900);
+        font-weight: 400;
+        letter-spacing: 1rem;
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      img {
+        margin-inline: auto;
+      }
+    }
+  }
+
+  @include mq(tb) {
+    .mv {
+      &_content {
+        margin-top: 80px;
+
+        h1 {
+          font-size: 28px;
+        }
+
+        img {
+          width: 70px;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  //---------------
+  //フォーム
+  //---------------
+  .form {
+    .field {
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+      label {
+        width: 30%;
+        padding: 10px 0;
+        letter-spacing: 0.8px;
+
+        span {
+          font-size: 14px;
+          color: var(--c-base);
+          background-color: var(--c-background2);
+          border-radius: 15px;
+          padding: 3px 14px;
+          margin-left: clampVw(5, 16, 16, 1920);
+        }
+      }
+      input {
+        width: 60%;
+        background-color: #fff;
+        padding: 10px 20px;
+        letter-spacing: 0.8px;
+      }
+      textarea {
+        width: 60%;
+        background-color: #fff;
+        padding: 10px 20px;
+        height: 240px;
+        letter-spacing: 0.8px;
+      }
+    }
+
+    button {
+      display: block;
+      margin-top: clampVw(30, 60, 60, 1920);
+      margin-inline: auto;
+      padding: 18px 0;
+      width: 218px;
+      text-align: center;
+      color: var(--c-base);
+      background-color: var(--c-black);
+      border-radius: 40px;
+      font-size: 20px;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+
+    @include mq(tb) {
+      margin-top: 77px;
+      .field {
+        display: block;
+
+        label,
+        input,
+        textarea {
+          display: block;
+          width: 100%;
+
+          span {
+            margin-left: 6px;
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,93 @@
+@use "sass:math";
+@use "sass:map";
+@use "sass:list";
+@use "sass:string";
+
+@function pct($pct, $ws: 1920) {
+  $ratio: math.div(100, $ws);
+  @return $ratio * $pct * 1%;
+}
+
+@function rem($rem) {
+  $baseFz: 16;
+  @return math.div($rem, ($baseFz * 0.625)) + rem;
+}
+
+// hover and active
+
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+$breakpoints: (
+  "xs": 0,
+  "min": 320px,
+  "sp": 576px,
+  "tb": 768px,
+  "sd": 1024px,
+  "md": 1280px,
+  "lg": 1440px,
+  "xl": 1600px,
+  "xxl": 1920px,
+) !default;
+
+// ------------------------
+// mq() ミックスイン
+// maxのみ、minのみ、min+max両方に対応
+// ------------------------
+@mixin mq($max-name: null, $min-name: null) {
+  $conditions: ();
+
+  @if $max-name == n {
+    $max-name: null;
+  }
+  @if $min-name == n {
+    $min-name: null;
+  }
+
+  @if $max-name != null and map.has-key($breakpoints, $max-name) {
+    $max: map.get($breakpoints, $max-name);
+    $conditions: list.append($conditions, "(max-width: #{$max})");
+  } @else if $max-name != null {
+    @error "指定された max ブレークポイント '#{$max-name}' は存在しません。使用可能: #{map.keys($breakpoints)}";
+  }
+
+  @if $min-name != null and map.has-key($breakpoints, $min-name) {
+    $min: map.get($breakpoints, $min-name) + 1px;
+    $conditions: list.append($conditions, "(min-width: #{$min})");
+  } @else if $min-name != null {
+    @error "指定された min ブレークポイント '#{$min-name}' は存在しません。使用可能: #{map.keys($breakpoints)}";
+  }
+
+  @if list.length($conditions) > 0 {
+    $media-list: ("screen");
+
+    @each $c in $conditions {
+      $media-list: list.append($media-list, string.quote($c));
+    }
+
+    $media-query: "";
+    @each $item in $media-list {
+      $media-query: if($media-query == "", $item, "#{$media-query} and #{$item}");
+    }
+
+    @media #{$media-query} {
+      @content;
+    }
+  } @else {
+    @warn "mq() に max か min のどちらかは必須です。";
+  }
+}
+
+//clamp設定
+@function clampVw($min, $size, $max, $vp: 1920) {
+  $min: $min * 0.1rem;
+  $max: $max * 0.1rem;
+  $num: math.div(100, $vp) * 1vw;
+  $size_vw: $num * $size;
+  @return clamp($min, $size_vw, $max);
+}
