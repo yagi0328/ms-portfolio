@@ -11,7 +11,6 @@ const initialState = {
 
 const ContactForm: FC = () => {
   const [state, formAction] = useActionState(createContactData, initialState);
-  console.log(state);
   if (state.status === "success") {
     return (
       <section className={`${styles.thanks_content} ${styles.content_wrap}`}>
