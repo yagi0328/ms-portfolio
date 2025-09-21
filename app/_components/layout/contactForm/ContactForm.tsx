@@ -4,13 +4,13 @@ import styles from "./contactForm.module.scss";
 import { createContactData } from "@/app/_actions/contact";
 import Link from "next/link";
 
-const intialState = {
+const initialState = {
   status: "",
   message: "",
 };
 
 const ContactForm: FC = () => {
-  const [state, formAction] = useActionState(createContactData, intialState);
+  const [state, formAction] = useActionState(createContactData, initialState);
   console.log(state);
   if (state.status === "success") {
     return (
@@ -36,7 +36,7 @@ const ContactForm: FC = () => {
                 必須
               </span>
             </label>
-            <input id="fullname" name="name" type="text" placeholder="山田 太郎" />
+            <input id="fullname" name="fullname" type="text" placeholder="山田 太郎" />
           </div>
 
           <div className={styles.field}>
