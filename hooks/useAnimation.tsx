@@ -153,7 +153,6 @@ export const useReadMore = (btns: HTMLElement[]) => {
 export const useParallaxImage = (images: HTMLElement[]) => {
   useGSAP(() => {
     images.forEach((img) => {
-      console.log("hoge");
       gsap.set(img, { y: 0 }); // 初期位置リセット
       gsap.to(img, {
         y: 30, // px指定で緩やかな上下移動

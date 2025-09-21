@@ -57,7 +57,7 @@ const WorksList: FC<Props> = ({ worksData, categoryData }) => {
           </div>
         </div>
       </section>
-      <section className={`${styles.list} ${styles.content_wrap}`}>
+      <section className={`${styles.list} ${styles.content_wrap}`} key={selectedCategory}>
         <div className={styles.list_content}>
           {filteredContents.length > 0 ? (
             <div className={styles.works_article_clm3}>
