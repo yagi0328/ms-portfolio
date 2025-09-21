@@ -56,7 +56,7 @@ const ContactForm: FC = () => {
               name="tel"
               type="tel"
               placeholder="03-1234-5678"
-              pattern="^[0-9+\-()\s]{9,16}$"
+              pattern="^[0-9+\-() ]{9,16}$"
               title="数字・+・-・( )・スペースが使えます（9〜16文字）"
             />
           </div>

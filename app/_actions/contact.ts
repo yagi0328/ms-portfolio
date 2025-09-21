@@ -84,10 +84,26 @@ export async function createContactData(_prevState: unknown, formData: FormData)
     }
   );
 
+  // ステータスコードのチェックを追加
+  if (!result.ok) {
+    console.error("HubSpot API Error:", result.status, result.statusText);
+    const errorText = await result.text();
+    console.error("Error details:", errorText);
+    return {
+      status: "error",
+      message: "お問い合わせの送信に失敗しました",
+    };
+  }
+
   try {
-    await result.json();
+    const responseData = await result.json();
+    console.log("HubSpot Response:", responseData);
+
+    if (responseData.inlineMessage || responseData.redirectUri) {
+      return { status: "success", message: "OK" };
+    }
   } catch (e) {
-    console.log(e);
+    console.error("JSON Parse Error:", e);
     return {
       status: "error",
       message: "お問い合わせに失敗しました",
