@@ -11,7 +11,7 @@ function validatePhone(tel: string) {
   return pattern.test(tel.replace(/\s/g, "")); // スペースを除去してチェック
 }
 
-export async function createContactData(_prevState: any, formData: FormData) {
+export async function createContactData(_prevState: unknown, formData: FormData) {
   const rawFormData = {
     fullname: formData.get("fullname") as string,
     email: formData.get("email") as string,
