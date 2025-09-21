@@ -1,6 +1,8 @@
 import Image from "next/image";
 import React, { FC } from "react";
 import styles from "./page.module.scss";
+import ContactForm from "../_components/layout/contactForm/ContactForm";
+import Link from "next/link";
 
 const Page: FC = () => {
   return (
@@ -11,79 +13,15 @@ const Page: FC = () => {
           <h1>CONTACT</h1>
         </div>
       </section>
-      <section className={`${styles.form} ${styles.content_wrap}`}>
-        <form action="confirm.html" method="post">
-          <fieldset>
-            <div className={styles.field}>
-              <label htmlFor="name">
-                お名前
-                <span className={styles.required} aria-hidden="true">
-                  必須
-                </span>
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                // autocomplete="name"
-                required
-                aria-required="true"
-                placeholder="山田 太郎"
-              />
-            </div>
-
-            <div className={styles.field}>
-              <label htmlFor="email">
-                メールアドレス
-                <span className={styles.required} aria-hidden="true">
-                  必須
-                </span>
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                // autocomplete="email"
-                required
-                aria-required="true"
-                placeholder="taro@example.com"
-              />
-            </div>
-
-            <div className={styles.field}>
-              <label htmlFor="tel">電話番号</label>
-              <input
-                id="tel"
-                name="tel"
-                type="tel"
-                // inputmode="tel"
-                // autocomplete="tel"
-                placeholder="03-1234-5678"
-                pattern="^[0-9+\-()\s]{9,16}$"
-                title="数字・+・-・( )・スペースが使えます（9〜16文字）"
-              />
-            </div>
-
-            <div className={styles.field}>
-              <label htmlFor="message">
-                お問い合わせ内容
-                <span className={styles.required} aria-hidden="true">
-                  必須
-                </span>
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                required
-                aria-required="true"
-                placeholder="お問い合わせの詳細をご記入ください。"
-                // maxlength="4000"
-              ></textarea>
-            </div>
-          </fieldset>
-          <button type="submit">送信する</button>
-        </form>
-      </section>
+      {/* <section className={`${styles.thanks_content} ${styles.content_wrap}`}>
+        <p>
+          お問い合わせいただきありがとうございました。
+          <br />
+          内容を確認の上、改めてご連絡差し上げます。
+        </p>
+        <Link href="/">TOPへ戻る</Link>
+      </section> */}
+      <ContactForm />
     </main>
   );
 };
