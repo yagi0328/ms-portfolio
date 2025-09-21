@@ -51,14 +51,7 @@ const ContactForm: FC = () => {
 
           <div className={styles.field}>
             <label htmlFor="tel">電話番号</label>
-            <input
-              id="tel"
-              name="tel"
-              type="tel"
-              placeholder="03-1234-5678"
-              pattern="^[0-9+\-() ]{9,16}$"
-              title="数字・+・-・( )・スペースが使えます（9〜16文字）"
-            />
+            <input id="tel" name="tel" type="tel" placeholder="03-1234-5678" />
           </div>
 
           <div className={styles.field}>
