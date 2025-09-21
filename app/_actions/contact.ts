@@ -71,7 +71,7 @@ export async function createContactData(_prevState: unknown, formData: FormData)
           },
           {
             objectTypeId: "0-1",
-            name: "tel",
+            name: "phone",
             value: rawFormData.tel,
           },
           {
