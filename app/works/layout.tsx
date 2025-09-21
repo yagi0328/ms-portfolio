@@ -6,6 +6,8 @@ type Props = {
   children: ReactNode;
 };
 
+export const revalidate = 0;
+
 const WorksLayout: FC<Props> = ({ children }) => {
   return (
     <main className="works">

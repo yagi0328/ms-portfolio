@@ -25,7 +25,7 @@ const Page: FC<Props> = async ({ params }) => {
         <div className={styles.detail_content}>
           <div className={styles.first_area}>
             <div>
-              <p className={styles.date}>{formatDate(data.createdAt)}</p>
+              {data.date && <p className={styles.date}>{data.date}</p>}
               <p className={styles.category}>{data.categories.category}</p>
             </div>
             <h2 className={styles.title}>{data.title}</h2>
@@ -56,8 +56,8 @@ const Page: FC<Props> = async ({ params }) => {
                 className={styles.thumbnail}
                 alt="WORKSのサムネイル"
                 src={data.thumbnail.url}
-                width={1140}
-                height={611}
+                width={data.thumbnail.width}
+                height={data.thumbnail.height}
               />
             ) : (
               <Image
@@ -101,15 +101,15 @@ const Page: FC<Props> = async ({ params }) => {
                   className={styles.spde}
                   src={image.spImage.url || "/works/spde-dummy.jpg"}
                   alt="img"
-                  width={289}
-                  height={489}
+                  width={image.spImage.width || 289}
+                  height={image.spImage.height || 489}
                 />
                 <Image
                   className={styles.pcde}
                   src={image.pcImage?.url || "/works/pcde-dummy.jpg"}
                   alt="img"
-                  width={836}
-                  height={448}
+                  width={image.pcImage.width || 836}
+                  height={image.pcImage.height || 448}
                 />
               </div>
             ))}

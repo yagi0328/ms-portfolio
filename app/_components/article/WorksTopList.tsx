@@ -9,8 +9,6 @@ type Props = {
   data: MicroCMSListResponse<Works>;
 };
 
-export const revalidate = 0;
-
 const WorksTopList: FC<Props> = ({ data }) => {
   return (
     <div className={styles.works_article_clm}>
@@ -23,8 +21,8 @@ const WorksTopList: FC<Props> = ({ data }) => {
                   className={styles.article_img}
                   alt="WORKSのサムネイル"
                   src={article.thumbnail.url}
-                  width={675}
-                  height={321}
+                  width={article.thumbnail.width}
+                  height={article.thumbnail.height}
                 />
               ) : (
                 <Image

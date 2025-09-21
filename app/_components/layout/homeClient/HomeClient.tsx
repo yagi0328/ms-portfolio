@@ -14,6 +14,8 @@ type Props = {
   worksData: MicroCMSListResponse<Works>;
 };
 
+export const revalidate = 0;
+
 export default function HomeClient({ worksData }: Props) {
   const mvTitleRef = useRef<HTMLHeadingElement>(null);
   const mvTextRef = useRef<HTMLParagraphElement>(null);

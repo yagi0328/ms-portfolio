@@ -26,6 +26,7 @@ export type Category = {
 export type Works = {
   title: string;
   categories: Category;
+  date: string;
   thumbnail: MicroCMSImage;
   range: string;
   tool: string;

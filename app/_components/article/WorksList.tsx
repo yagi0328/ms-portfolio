@@ -12,8 +12,6 @@ type Props = {
   categoryData: MicroCMSListResponse<Category>;
 };
 
-export const revalidate = 0;
-
 const WorksList: FC<Props> = ({ worksData, categoryData }) => {
   const fadeInRef = useRef<HTMLElement[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("ALL");
@@ -77,8 +75,8 @@ const WorksList: FC<Props> = ({ worksData, categoryData }) => {
                           className={styles.article_img}
                           alt="WORKSのサムネイル"
                           src={article.thumbnail.url}
-                          width={675}
-                          height={321}
+                          width={article.thumbnail.width}
+                          height={article.thumbnail.height}
                         />
                       ) : (
                         <Image
