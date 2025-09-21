@@ -73,7 +73,7 @@ const Header: FC = () => {
           naviAreaRef.current?.classList.add(styles.active);
         }}
       >
-        <Image src="/top/sp-navi-icon.svg" width={52} height={54} alt="menu" />
+        <Image src="/top/sp-navi-icon.png" width={52} height={54} alt="menu" />
       </button>
 
       <div ref={naviAreaRef} className={styles.navi_area + " sp"}>
