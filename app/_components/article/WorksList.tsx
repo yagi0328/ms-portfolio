@@ -25,6 +25,7 @@ const WorksList: FC<Props> = ({ worksData, categoryData }) => {
   }, [worksData.contents, selectedCategory]);
 
   useFadeIn(fadeInRef.current);
+  
 
   return (
     <>

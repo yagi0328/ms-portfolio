@@ -84,15 +84,11 @@ export const getWorksCategory = async (queries?: MicroCMSQueries) => {
 export const getPrevNextWorks = async (slug: string) => {
   const allWorks = await getAllWorks();
 
-  // 作成日で並べ替え（昇順なら a - b、降順なら b - a）
-  const sorted = allWorks.contents.sort(
-    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-  );
-
-  const index = sorted.findIndex((work) => work.id === slug);
+  // ソートせずに、APIレスポンスの順序をそのまま使用
+  const index = allWorks.contents.findIndex((work) => work.id === slug);
 
   return {
-    prev: index > 0 ? sorted[index - 1] : null,
-    next: index < sorted.length - 1 ? sorted[index + 1] : null,
+    prev: index > 0 ? allWorks.contents[index - 1] : null,
+    next: index < allWorks.contents.length - 1 ? allWorks.contents[index + 1] : null,
   };
 };
