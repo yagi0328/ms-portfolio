@@ -24,13 +24,6 @@ const Page: FC = () => {
   });
   useParallaxImage(parallaxImageRefs.current);
 
-  //   useEffect(() => {
-  //     window.scrollTo(0, 0);
-
-  //     setTimeout(() => {
-  //       ScrollTrigger.refresh();
-  //     }, 100);
-  //   }, []);
   return (
     <main className={styles.about}>
       <section className={styles.mv}>
