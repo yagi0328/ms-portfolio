@@ -243,7 +243,7 @@ const Page: FC = () => {
               <div className={styles.skills_content_block}>
                 <div className={styles.block_ttl}>
                   <span></span>
-                  <p>Web Direction</p>
+                  <p>Web Design</p>
                 </div>
                 <p className={styles.block_desc}>
                   バナーデザイン、ウェブサイトやLPのデザイン、HTML/CSS/Javascriptを使用したコーディングを行うことができます。クライアントの要望を汲み取り、目的達成または課題解決するために適切なUI/UXを設計します。ノーコードツール（STUDIOなど）を使用したサイト構築も可能です。またAIの活用によりアニメーション表現を向上させます。
@@ -252,7 +252,7 @@ const Page: FC = () => {
               <div className={styles.skills_content_block}>
                 <div className={styles.block_ttl}>
                   <span></span>
-                  <p>Web Direction</p>
+                  <p>Web Planning</p>
                 </div>
                 <p className={styles.block_desc}>
                   クライアントからの相談やプロポーザル案件などに対するウェブコンテンツの企画・提案を行うことができます。市場調査や競合分析を行い、ウェブサイトの目指すべき位置づけ・課題を明確にして適切な解決策を考案し、クライアントの理解を促す提案書を作成します。
