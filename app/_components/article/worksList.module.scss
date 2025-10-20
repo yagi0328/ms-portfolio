@@ -65,32 +65,39 @@
       a {
         &:hover {
           .arrow_blk {
-            transform: scale(1.2);
+            transform: scale(1.1);
+          }
+          .article_img {
+            transform: scale(1.05);
           }
         }
       }
       .article_img_area {
         position: relative;
+        border-radius: clampVw(15, 30, 30, 1920);
+        overflow: hidden;
 
         .article_img {
           width: 100%;
-          border-radius: clampVw(15, 30, 30, 1920);
           aspect-ratio: 455 / 252;
           object-fit: cover;
+          transition: transform 0.4s ease;
         }
 
         .arrow_blk {
-          width: clampVw(32, 54, 54, 1920);
-          height: clampVw(32, 54, 54, 1920);
+          width: clampVw(32, 48, 48, 1920);
+          height: clampVw(32, 48, 48, 1920);
           background-color: var(--c-base);
           border-radius: 50%;
+          opacity: 0.9;
+          box-shadow: 1px 1px 3px #999;
           position: absolute;
           right: 16px;
           bottom: 16px;
           transition: transform 0.4s ease;
 
           img {
-            width: clampVw(12, 17, 17, 1920);
+            width: clampVw(12, 16, 16, 1920);
             position: absolute;
             top: 50%;
             left: 50%;
