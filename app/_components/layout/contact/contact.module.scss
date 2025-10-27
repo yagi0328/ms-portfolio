@@ -32,7 +32,7 @@
       font-size: clampVw(28, 48, 48, 1250);
       letter-spacing: 0.7rem;
       min-width: 0; //折り返し可能に
-      @include md(tb) {
+      @include mq(tb) {
         letter-spacing: 0.4rem;
       }
     }
