@@ -53,15 +53,14 @@
     }
     .article_img_area {
       position: relative;
+      border-radius: clampVw(15, 30, 30, 1920);
+      overflow: hidden;
 
       .article_img {
-        // width: 100%;
-        border-radius: clampVw(15, 30, 30, 1920);
-
-        img {
-          aspect-ratio: 455 / 252;
-          object-fit: cover;
-        }
+        width: 100%;
+        aspect-ratio: 455 / 252;
+        object-fit: cover;
+        transition: transform 0.4s ease;
       }
 
       .arrow_blk {
