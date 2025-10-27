@@ -46,6 +46,9 @@
         .arrow_blk {
           transform: scale(1.2);
         }
+        .article_img {
+          transform: scale(1.05);
+        }
       }
     }
     .article_img_area {
@@ -66,6 +69,7 @@
         height: clampVw(32, 54, 54, 1920);
         background-color: var(--c-base);
         border-radius: 50%;
+        opacity: 0.9;
         position: absolute;
         right: 16px;
         bottom: 16px;
